@@ -26,11 +26,12 @@ const Home: NextPage = () => {
           {!!user.isSignedIn && <SignOutButton />}
         </div>
         <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
-        {data?.map((item: Item) => (
+        {/* {data?.map((item: Item) => (
           <div key={item.id}>
             <h1>{item.content}</h1>
           </div>
-        ))}
+        ))} */}
+        {JSON.stringify(data)}
       </main>
     </>
   );
