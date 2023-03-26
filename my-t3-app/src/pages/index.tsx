@@ -4,6 +4,12 @@ import Head from "next/head";
 
 import { api } from "~/utils/api";
 
+interface Item {
+  id: string;
+  content: string;
+  createdAt: string;
+}
+
 const Home: NextPage = () => {
   const user = useUser();
   const { data } = api.posts.getAll.useQuery();
@@ -20,7 +26,7 @@ const Home: NextPage = () => {
           {!!user.isSignedIn && <SignOutButton />}
         </div>
         <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
-        {data?.map((item: any) => (
+        {data?.map((item: Item) => (
           <div key={item.id}>
             <h1>{item.content}</h1>
           </div>
